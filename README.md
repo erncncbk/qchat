@@ -1,16 +1,40 @@
 # qchat
 
-A new Flutter project.
+Sample Realtime Chat project
+
+## Intro
+
+https://user-images.githubusercontent.com/43441567/149393492-ea46c3ee-0d86-4705-86a6-4d5eeedbf5e0.mp4
+
+
+## Chat
+
+https://user-images.githubusercontent.com/43441567/149393661-a163fc86-9410-43b7-bbed-c453f5f7e2e7.mov
+
+## Includes
+
+- Project Setup
+- Provider
+- Service Locator
+- Firebase Auth
+- Firabase Storage
+- Firebase Cloud Firestore
+- Realtime Chat
+- Badge Count
+- Send Image
+
 
 ## Getting Started
+-   For the firebase services to work you should create firebase app both ios and android. Then download services files for ios and android of the firebase, and add downloaded files.
+    -   Under the ios folder:
+        -   ios/Runner/GoogleService-Info.plist
+        -   ios/Runner/Info.plist (add the missing permissions)
 
-This project is a starting point for a Flutter application.
+    -   Under the android folder:
+        -   android/app/google-services.json
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
