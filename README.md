@@ -4,7 +4,8 @@ Sample Realtime Chat project
 
 ## Intro
 
-https://user-images.githubusercontent.com/43441567/149393492-ea46c3ee-0d86-4705-86a6-4d5eeedbf5e0.mp4
+https://user-images.githubusercontent.com/43441567/149396895-f623c04c-5601-44a4-a41e-fd00f9c4148b.mov
+
 
 
 ## Chat
