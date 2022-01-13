@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -36,10 +37,7 @@ class _ChatListPageState extends State<ChatListPage> {
   final FBAuthService? _fbAuthService = FBAuthService();
 
   bool isLoading = false;
-  final TextEditingController _search = TextEditingController();
-  FocusNode? _searchFocus;
   Map<String, dynamic>? userMap;
-  final formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -148,10 +146,10 @@ class _ChatListPageState extends State<ChatListPage> {
               }
               return countChatListUsers(_auth.currentUser!.uid, userSnapshot) >
                       0
-                  ? Container(
-                      height: 70.toDouble() * userSnapshot.data!.docs.length,
-                      child: ListView(
-                          children: userSnapshot.data!.docs.map((userData) {
+                  ? ListView(
+                      primary: true,
+                      shrinkWrap: true,
+                      children: userSnapshot.data!.docs.map((userData) {
                         if (userData['fbUid'] == _auth.currentUser!.uid) {
                           return Container();
                         } else {
@@ -168,8 +166,7 @@ class _ChatListPageState extends State<ChatListPage> {
                                     userData, chatListSnapshot);
                               });
                         }
-                      }).toList()),
-                    )
+                      }).toList())
                   : Container(
                       child: Center(
                           child: Column(
@@ -199,9 +196,15 @@ class _ChatListPageState extends State<ChatListPage> {
 
   Widget _chatListTile(QueryDocumentSnapshot<Object?> userData,
       AsyncSnapshot<QuerySnapshot<Object?>> chatListSnapshot) {
+    final MaterialColor color =
+        Colors.primaries[Random().nextInt(Colors.accents.length)];
     return ListTile(
       leading: CircleAvatar(
-        backgroundColor: AppColors.primary,
+        backgroundColor: color,
+        child: Text(
+          userData['name'][0],
+          style: TextStyle().normalStyle,
+        ),
         // no matter how big it is, it won't overflow
       ),
       title: Text(userData['name']),

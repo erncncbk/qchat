@@ -87,7 +87,7 @@ class _CustomTextFormFieldWidgetState extends State<CustomTextFormFieldWidget> {
       fillColor: AppColors.black.withOpacity(0.1),
       contentPadding: new EdgeInsets.symmetric(vertical: 15, horizontal: 10),
       filled: true,
-      errorStyle: TextStyle(color: AppColors.red).smallStyle,
+      errorStyle: TextStyle(color: AppColors.red).minStyle,
       errorMaxLines: 3,
       focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(20)),

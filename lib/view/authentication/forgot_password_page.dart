@@ -54,6 +54,20 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     // FocusScope.of(context!).requestFocus(nextFocus);
   }
 
+  void _forgotPassword() {
+    final form = formKey.currentState;
+    if (form!.validate()) {
+      _fbAuthService!
+          .resetPassword(context, _emailController!.text)
+          .then((value) {
+        if (value) {
+          showAlertDialog(context, "Link sended your e-mail");
+        }
+        form.save();
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -175,15 +189,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              _fbAuthService!
-                                  .resetPassword(
-                                      context, _emailController!.text)
-                                  .then((value) {
-                                if (value) {
-                                  showAlertDialog(
-                                      context, "Link sended your e-mail");
-                                }
-                              });
+                              _forgotPassword();
                             },
                             child: ClipOval(
                               clipBehavior: Clip.hardEdge,
