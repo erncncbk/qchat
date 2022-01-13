@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:qchat/core/components/alert/alert_dialog.dart';
 import 'package:qchat/core/components/text/custom_text_widget.dart';
 import 'package:qchat/core/constants/app/app_colors.dart';
 import 'package:qchat/core/constants/navigation/navigation_constant.dart';
@@ -80,11 +81,14 @@ class _ChatListPageState extends State<ChatListPage> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             IconButton(
-                onPressed: () async {
-                  _fbAuthService!.signOut();
-                  await _storageService!.clearStorageAsync().then((value) {
-                    _appStateProvider!.clearToken();
-                    exit(0);
+                onPressed: () {
+                  showAlertDialogWOptions(
+                      context, "Log out", "Are you sure you want to log out ?",
+                      () async {
+                    await _storageService!.clearStorageAsync().then((value) {
+                      _fbAuthService!.signOut();
+                      exit(0);
+                    });
                   });
                 },
                 icon: Icon(

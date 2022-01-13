@@ -142,9 +142,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: context.lowValue,
-                      ),
+                      SizedBox(height: context.mediumValue),
                       CustomTextFormFieldWidget(
                         hintText: "Name",
                         initialValue: "",
@@ -197,7 +195,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         textInputAction: TextInputAction.done,
                       ),
                       SizedBox(
-                        height: context.highValue,
+                        height: context.mediumValue,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -250,7 +248,7 @@ class _RegisterPageState extends State<RegisterPage> {
           ],
         ),
         Positioned(
-          top: -50,
+          top: -30,
           left: 0,
           right: 0,
           child: Container(

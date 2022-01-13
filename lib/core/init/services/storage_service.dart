@@ -1,13 +1,20 @@
 import 'package:qchat/core/constants/app/app_constants.dart';
+import 'package:qchat/core/provider/app_state/app_state_provider.dart';
+import 'package:qchat/locator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class StorageService {
+  final AppStateProvider? _appStateProvider = locator<AppStateProvider>();
+
   /// Aydıt belleğindeki uygulama ile ilgili bilgileri temizler.
   /// Token, secret, userFullName, phoneNumber bilgileri temizlenir.
-  Future<void> clearStorageAsync() async {
+  Future<bool> clearStorageAsync() async {
     SharedPreferences instances = await SharedPreferences.getInstance();
     instances.remove(Constant.userToken);
+    _appStateProvider!.clearToken();
     instances.clear();
+
+    return true;
   }
 
   ///Bellekten Kullanıcı Token bilgilerini alır.

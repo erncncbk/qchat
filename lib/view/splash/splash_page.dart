@@ -30,7 +30,6 @@ class _SplashPageState extends State<SplashPage> {
   Future checkReadOnlyAsync(BuildContext context) async {
     ///Kullanıcı bilgilerini çeker. Sayfa açılışında istekte bulunur
     NavigationService navigation = NavigationService.instance;
-
     await _storageService!.getTokenAsync().then((value) async {
       if (value != null) {
         /// Set Token

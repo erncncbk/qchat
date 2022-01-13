@@ -68,7 +68,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       height: 100,
       padding: EdgeInsets.symmetric(horizontal: 30),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Stack(
             children: [
@@ -210,7 +210,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           ],
         ),
         Positioned(
-          top: -50,
+          top: -30,
           left: 0,
           right: 0,
           child: Container(
